@@ -1,0 +1,17 @@
+#welcome-div{
+    display:grid;
+    place-items:center;
+    text-align:center;
+}
+
+main{
+    margin-left: 200px !important;
+    margin-right: 200px !important;
+
+}
+#submit-holder{
+    width: 200px;
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+}
