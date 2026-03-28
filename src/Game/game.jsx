@@ -1,5 +1,6 @@
 import React from 'react';
 import './game.css';
+import { useNavigate } from 'react-router-dom';
 
 export function Game(){
     const [questions, setQuestions] = React.useState();
@@ -8,10 +9,17 @@ export function Game(){
     const [curIndex, setCurIndex] = React.useState(0);
     const [question, setQuestion] = React.useState('');
     const [selectedAnswer, setSelectedAnswer] = React.useState(false);
+    const [answersCorrect, setAnswersCorrect] = React.useState(0);
     const [answerCorrect, setAnswerCorrect] = React.useState(null);
+    const [questionStart, setQuestionStart] = React.useState(null);
+    const navigate = useNavigate();
 
     React.useEffect(() => {
-        if (questions) setQuestion(questions[curIndex]);
+        if (questions) 
+        {
+            setQuestion(questions[curIndex]);
+            setQuestionStart(Date.now());
+        }
     }, [questions, curIndex])
 
     React.useEffect(() => { // React hook for getting data from Open Trivia DB.
@@ -45,17 +53,27 @@ export function Game(){
     {
         setSelectedAnswer(true);
         setAnswerCorrect(correct);
-        if (correct) setScore(i => i + 100);
+        if (correct) 
+        {
+            const elapsed = (Date.now() - questionStart) / 1000; // seconds
+            const timeBonus = Math.max(0, 100 - Math.floor(elapsed * 10));
+            setScore(i => i + timeBonus);
+            setAnswersCorrect(i => i + 1);
+        }
     }
 
     function handleContinue()
     {
-        setCurIndex(i => i+1);
-        if (curIndex === questions.length)
+        if (curIndex === questions.length - 1)
         {
-            
+            navigate(`/end-game?score=${score}&total=${questions.length}&correct=${answersCorrect}`);
         }
-        setSelectedAnswer(false);
+        else
+        {
+            setCurIndex(i => i+1);
+            setSelectedAnswer(false);
+        }
+
     }
 
     return(
@@ -71,7 +89,7 @@ export function Game(){
                     <div id="button-holder">
                         {
                             question.answers.map((answer) => (
-                                <button className="btn btn-primary" key={answer} onClick={() => 
+                                <button disabled={selectedAnswer} className="btn btn-primary" key={answer} onClick={() => 
                                 handleQuestionAnswered(question.correct_answer === answer)
                                 }>
                                 {answer}

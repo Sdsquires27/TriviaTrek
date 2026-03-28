@@ -13,9 +13,13 @@ npm run dev
 This will start up the application. You can tell Vite to open your browser to the URL that is hosting your application by pressing `o`. Once you're done, press `q` to stop Vite from hosting the appllication.
 ## Creating the Project
 ### Tools
+I mostly used other code I had created as a template and solved this using my own skill--I looked up things I didn't know but refrained from using more powerful tools like AI.
 
 ### Libraries
+I used React, React Router, Bootstrap, and Vite.
 
 ### Assumptions
+5 questions was assumed, together with the way score is calculated.
 
 ## More time
+I would have loved to put more personality into this--I feel that I got so focused on adding the functionality that I didn't add too many unique touches. I didn't create a proper backend, either, which would be really important to get in. 
