@@ -44,7 +44,7 @@ export function Welcome(){
                     onChange={handleCategoryChange} // Updates the state on change
                     aria-label="Select Category"
                     >
-                    <option selected>Choose Category</option>
+                    <option value="">Choose Category</option>
                     <option value="9">General Knowledge</option>
                     <option value="10">Entertainment: Books</option>
                     <option value="11">Entertainment: Music</option>
@@ -67,8 +67,7 @@ export function Welcome(){
                     <option value="28">Vehicles</option>
                     </Form.Select>
                 </Form.Group>
-
-                <button className="btn btn-dark" type="button" onClick={() => navigate('/game')}>Start Game</button>
+                <button className="btn btn-dark" type="button" disabled={category=="" || difficulty ==""} onClick={() => navigate(`/game?category=${category}&difficulty=${difficulty}`)}>Start Game</button>
             </div>
         </div>
     )

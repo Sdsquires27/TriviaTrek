@@ -1,0 +1,21 @@
+#button-holder
+{
+    display:flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+#main-div
+{
+    display:flex;
+    flex-direction: column;
+    gap:1rem;
+    align-items:center;
+}
+
+#Score
+{
+    color:white;
+    font-weight:bold;
+    font-size: large;
+}
