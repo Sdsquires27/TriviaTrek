@@ -15,12 +15,14 @@ export default function App()
             <header>
                 <h1>Trivia Trek</h1>
             </header>
-            <Routes>
-                <Route path='/' element={<Welcome />} />
-                <Route path='/game' element={<Game />} />
-                <Route path='/end-game' element={<EndGame />} />
-                <Route path='*' element={<NotFound />} />
-            </Routes>
+            <main>
+                <Routes>
+                    <Route path='/' element={<Welcome />} />
+                    <Route path='/game' element={<Game />} />
+                    <Route path='/end-game' element={<EndGame />} />
+                    <Route path='*' element={<NotFound />} />
+                </Routes>
+            </main>
             <footer>
                 <p>Author Name: Seth Squires</p>
                 <a className="nav-link active" id="github-link" href="https://github.com/Sdsquires27/TriviaTrek">View GitHub</a>

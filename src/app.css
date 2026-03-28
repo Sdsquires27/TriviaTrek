@@ -5,7 +5,8 @@
 }
 
 html, body{
-    height: 100%;
+    min-height: 100vh;
+    min-width: 100vh;
     margin: 0;
 }
 
@@ -19,20 +20,19 @@ header{
     flex:0 80px;
     padding-left: 2rem;
     align-items:center;
-    justify-content:start;
+    justify-content:center;
     gap: 2rem;
     list-style:none;
-    background-color: #4a4e4d;
+    background-color: #251e3e ;
     color: white;
 }
 
 footer{
     display:flex;
     flex:0 80px;
-    flex-direction:row;
     gap: 2rem;
     list-style:none;
-    background-color: #4a4e4d;
+    background-color: #251e3e ;
     color: white;
     padding-left:2rem;
     align-items:center;
@@ -48,6 +48,19 @@ main{
     justify-content:center;
     gap:1rem;
     margin-top:50px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.body{
+    font-family:sans-serif;
+    display:flex;
+    flex-direction:column;
+    font-size: 16px;
+    background-color: #b39bae ;
+    height: 100vh;
+}
+
+#github-link{
+    margin-bottom: 1rem;
 }
